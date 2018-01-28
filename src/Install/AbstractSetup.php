@@ -49,59 +49,101 @@ abstract class AbstractSetup extends \XF\AddOn\AbstractSetup
 	
 	public function getData($dataKey = null)
 	{
-		return $this->mySql->getData($dataKey);
+		$data = $this->mySql->get([]);
+		
+		if ($dataKey !== null)
+		{
+			return $data[$dataKey];
+		}
+		
+		return $data;
+	}
+	
+	protected function checkData($dataKey, &$tableName)
+	{
+		$data = $this->getData($dataKey);
+		
+		if (!$data)
+		{
+			return;
+		}
+		
+		if (!$tableName)
+		{
+			$tableName = $dataKey;
+		}
+		
+		return $data;
 	}
 	
 	public function importTable($dataKey, $tableName = null, $query = true)
 	{
-		$data = $this->getData($dataKey);
-		
-		if (is_null($data)) return;
-		
-		if (is_null($tableName))
+		if ($data = $this->checkData($dataKey, $tableName))
 		{
-			$tableName = $dataKey;
-		}
-		
-		$sm = $this->schemaManager();
-		
-		if (isset($data['create_callback']))
-		{
-			$sm->createTable($tableName, $data['create_callback']);
-		}
-		
-		if (isset($data['alter_callback']))
-		{
-			$sm->alterTable($tableName, $data['alter_callback']);
-		}
-		
-		if ($query)
-		{
-			$this->importData($dataKey, $tableName);
+			$sm = $this->schemaManager();
+			
+			if (isset($data['create_alter']))
+			{
+				$sm->alterTable($tableName, $data['create_alter']);
+			} 
+			elseif (isset($data['create']))
+			{
+				$sm->createTable($tableName, $data['create']);
+			}
+			
+			if ($query)
+			{
+				$this->queryData($dataKey, $tableName, false);
+			}
 		}
 	}
 	
-	public function importData($dataKey, $tableName = null)
+	public function dropTable($dataKey, $tableName = null, $query = true)
 	{
-		$data = $this->getData($dataKey);
-		
-		if (empty($data['query'])) return;
-		
-		if (is_null($tableName))
+		if ($data = $this->checkData($dataKey, $tableName))
 		{
-			$tableName = $dataKey;
-		}
-		
-		if (!is_array($data['query']))
-		{
-			$data['query'] = [$data['query']];
-		}
-		
-		foreach ($data['query'] as $query)
-		{
-			$query = str_ireplace('[table]', $tableName, $query);
+			$sm = $this->schemaManager();
 			
-			$this->db()->query($query);
+			if (isset($data['drop_alter']))
+			{
+				$sm->alterTable($tableName, $data['drop_alter']);
+			} 
+			else
+			{
+				$sm->dropTable($tableName);
+			}
+			
+			if ($query)
+			{
+				$this->queryData($dataKey, $tableName, true);
+			}
+		}
+	}
+	
+	public function queryData($dataKey, $tableName = null, $drop = false)
+	{
+		if ($data = $this->checkData($dataKey, $tableName))
+		{
+			$key = ($drop ? 'create' : 'drop') . '_query';
+			
+			if (!isset($data[$key]))
+			{
+				return;
+			}
+			
+			$queries = $data[$key];
+			
+			if (!is_array($queries))
+			{
+				$queries = [$queries];
+			}
+			
+			foreach ($queries as $query)
+			{
+				$query = str_ireplace('[table]', $tableName, $query);
+				
+				$this->db()->query($query);
+			}
 		}
 	}
 	
@@ -256,19 +298,9 @@ abstract class AbstractSetup extends \XF\AddOn\AbstractSetup
 		
 		foreach ($this->getData() AS $dataKey => $data)
 		{
-			if (isset($data['alter_callback']))
-			{
-				if (isset($data['alter_drop_callback']))
-				{
-					$sm->alterTable($dataKey, $data['alter_drop_callback']);
-				}
-				
-				continue;
-			}
-			
 			if (empty($data['import']) || $data['import'] !== true) continue;
 			
-			$sm->dropTable($dataKey);
+			$this->dropTable($dataKey, null, true);
 		}
 		
 		$this->_postUninstall();
