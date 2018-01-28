@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_details" modification_key="account_details" description="Gender" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="helper_account" name="dob_privacy_row" />]]></find>
+    <replace><![CDATA[$0
+<xf:macro template="sxfcore_helper_gender_edit" name="gender" arg-user="{$xf.visitor}"/>]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="user_edit" description="Gender" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="public:helper_user_dob_edit" name="dob_edit" arg-dobData="{$user.Profile}" />]]></find>
+    <replace><![CDATA[$0
+<xf:macro template="public:sxfcore_helper_gender_edit" name="gender" arg-user="{$user}" />]]></replace>
+  </modification>
+</template_modifications>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="sxfcore_gender" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Gender]]></phrase>
+  <phrase title="sxfcore_gender_female" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Female]]></phrase>
+  <phrase title="sxfcore_gender_male" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Male]]></phrase>
+</phrases>
