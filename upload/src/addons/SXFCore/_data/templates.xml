@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="sxfcore_base_custom_field_macros" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[<xf:macro name="common_options" arg-field="!"
+	arg-supportsRequired="{{ true }}"
+	arg-supportsUserEditable="{{ false }}"
+	arg-supportsEditableOnce="{{ false }}"
+	arg-supportsModeratorEditable="{{ false }}"
+	arg-supportsGroupEditable="{{ false }}"
+	arg-supportsGroupViewable="{{ false }}">
+	
+	<xf:checkboxrow hideempty="true">
+		<xf:if is="$supportsRequired">
+			<xf:option name="required" selected="$field.required">{{ phrase('field_is_required') }}</xf:option>
+		</xf:if>
+		<xf:if is="$supportsUserEditable">
+			<xf:option name="user_editable" value="yes" selected="$field.user_editable != 'never'"
+				label="{{ phrase('user_editable') }}">
+
+				<xf:checkbox>
+					<xf:if is="$supportsEditableOnce">
+						<xf:option name="user_editable" value="once" selected="$field.user_editable == 'once'">{{ phrase('editable_only_once') }}</xf:option>
+					</xf:if>
+				</xf:checkbox>
+			</xf:option>
+		</xf:if>
+		<xf:if is="$supportsModeratorEditable">
+			<xf:option name="moderator_editable" selected="$field.moderator_editable">{{ phrase('moderator_editable') }}</xf:option>
+		</xf:if>
+	</xf:checkboxrow>
+
+	<xf:if is="$supportsGroupEditable">
+		<xf:macro template="helper_user_group_edit" name="checkboxes"
+			arg-label="{{ phrase('editable_by_user_groups') }}"
+			arg-id="editable_user_group"
+			arg-selectedUserGroups="{{ $field.field_id ? $field.editable_user_group_ids : [-1] }}" />
+	</xf:if>
+	
+	<xf:if is="$supportsGroupViewable">
+		<xf:macro template="helper_user_group_edit" name="checkboxes"
+			arg-label="{{ phrase('sxfcore_viewable_by_user_groups') }}"
+			arg-id="viewable_user_group"
+			arg-selectedUserGroups="{{ $field.field_id ? $field.viewable_user_group_ids : [-1] }}" />
+		<xf:formrow explain="{{ phrase('sxfcore_viewable_by_user_groups_explain') }}" />
+	</xf:if>
+</xf:macro>]]></template>
+  <template type="public" title="sxfcore_helper_gender_edit" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[<xf:macro name="gender" arg-user="!">
+	<xf:selectrow name="sxfcore_gender" label="{{ phrase('sxfcore_gender') }}" value="{$user.sxfcore_gender}">
+		<xf:option value="">{{ phrase('no_selection') }}</xf:option>
+		<xf:option value="male">{{ phrase('sxfcore_gender_male') }}</xf:option>
+		<xf:option value="female">{{ phrase('sxfcore_gender_female') }}</xf:option>
+	</xf:selectrow>
+</xf:macro>]]></template>
+</templates>

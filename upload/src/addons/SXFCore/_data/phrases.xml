@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="sxfcore_gender" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Gender]]></phrase>
+  <phrase title="sxfcore_gender_female" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Female]]></phrase>
+  <phrase title="sxfcore_gender_male" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Male]]></phrase>
+  <phrase title="sxfcore_no_permission_view_value_this_field" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[You do not have sufficient permissions to view the value of this field!]]></phrase>
+  <phrase title="sxfcore_viewable_by_user_groups" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[User groups that can see values after editing]]></phrase>
+  <phrase title="sxfcore_viewable_by_user_groups_explain" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[Please note that not dependent on the rights, the administrator always sees this field!]]></phrase>
+</phrases>
