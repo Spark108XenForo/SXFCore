@@ -16,4 +16,15 @@ class User extends XFCP_User
 		
 		return $structure;
 	}
+	
+	
+	public function isFollower(\XF\Entity\User $user)
+	{
+		$userFolow = \XF::finder('XF:UserFollow')->where([
+			'follow_user_id' => $this->user_id,
+			'user_id' => $user->user_id
+		])->fetchOne();
+		
+		return $userFolow ? true : false;
+	}
 }

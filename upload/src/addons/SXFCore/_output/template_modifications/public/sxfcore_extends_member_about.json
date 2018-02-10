@@ -1,0 +1,9 @@
+{
+    "template": "member_about",
+    "description": "Replace field macros.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:macro template=\"custom_fields_macros\" name=\"custom_fields_view\"(.*)\\/>/Us",
+    "replace": "<xf:macro template=\"sxfcore_custom_fields_macros\" \n\tname=\"custom_fields_view\" \n\targ-sxfcorefields=\"{$sxfcore_fields}\"\n$1/>"
+}

@@ -4,6 +4,14 @@
   <phrase title="sxfcore_gender_female" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Female]]></phrase>
   <phrase title="sxfcore_gender_male" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Male]]></phrase>
   <phrase title="sxfcore_no_permission_view_value_this_field" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[You do not have sufficient permissions to view the value of this field!]]></phrase>
+  <phrase title="sxfcore_the_user_has_forbidden_to_view_this_information" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[The user has forbidden to view this information!]]></phrase>
+  <phrase title="sxfcore_this_field_can_be_hidden_by_the_user" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[This field can be hidden by the user]]></phrase>
+  <phrase title="sxfcore_this_field_can_be_hidden_by_the_user_explain" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[The field will be displayed only to the user who hides it, as well as to the chief administrator and the main moderator.]]></phrase>
   <phrase title="sxfcore_viewable_by_user_groups" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[User groups that can see values after editing]]></phrase>
   <phrase title="sxfcore_viewable_by_user_groups_explain" version_id="1000232" version_string="1.0.2 Beta 2"><![CDATA[Please note that not dependent on the rights, the administrator always sees this field!]]></phrase>
+  <phrase title="sxfcore_who_sees_the_field" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[Who sees the field]]></phrase>
+  <phrase title="sxfmp_all_users" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[All users]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_authorized" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[Authorized only]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_hide" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[Only I]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_subscriber" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[Subscribers only]]></phrase>
 </phrases>

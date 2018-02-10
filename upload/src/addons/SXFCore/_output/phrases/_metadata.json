@@ -1,0 +1,50 @@
+{
+    "sxfcore_the_user_has_forbidden_to_view_this_information.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "6d1e0a6275076d547622ccf3bde686d2"
+    },
+    "sxfcore_this_field_can_be_hidden_by_the_user.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "c411b2986559e478a439ec71b5782d09"
+    },
+    "sxfcore_this_field_can_be_hidden_by_the_user_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "5bec28ad819adbb89cb3a6f37cab45e7"
+    },
+    "sxfcore_who_sees_the_field.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "190a31d5b13547c06e7691feba721721"
+    },
+    "sxfmp_all_users.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "0d603cecbdb2dc918ac89ab159cce59a"
+    },
+    "sxfmp_user_filed_hide_authorized.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "a2591894f33d60f0d8af878613c6d406"
+    },
+    "sxfmp_user_filed_hide_hide.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "9d4746e54dd338a1c6a7f7845b21b3b4"
+    },
+    "sxfmp_user_filed_hide_subscriber.txt": {
+        "global_cache": false,
+        "version_id": 1000332,
+        "version_string": "1.0.3 Beta 2",
+        "hash": "ff83edd392d41cd52eecb0052c2ca788"
+    }
+}

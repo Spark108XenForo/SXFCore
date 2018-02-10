@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Replace field macros.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:macro template=\"custom_fields_macros\" name=\"custom_fields_edit\"\\s+(.*?)\\s+\\/>/Su",
+    "replace": "<xf:macro template=\"sxfcore_custom_fields_macros\" name=\"custom_fields_edit\"\n\targ-sxfcorefields=\"{$sxfcore_fields}\"\n\t$1/>"
+}

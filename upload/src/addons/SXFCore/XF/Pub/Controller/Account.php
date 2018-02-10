@@ -21,4 +21,48 @@ class Account extends XFCP_Account
 		
 		return $form;
 	}
+
+	public function actionAccountDetails()
+	{
+		$view = parent::actionAccountDetails();
+		
+		$visitor = \XF::visitor();
+
+		if ($this->isPost())
+		{
+			if ($visitor->canEditProfile())
+			{
+				$fieldHides = $this->filter('sxfcorefield_hide', 'array');
+				
+				foreach ($fieldHides as $key => $value)
+				{
+					$fieldValue = \XF::finder('XF:UserFieldValue')->where([
+						'field_id' => $key,
+						'user_id' => $visitor->user_id
+					])->fetchOne();
+					
+					if ($fieldValue)
+					{
+						$fieldValue->fastUpdate('sxfcore_hide_field', $value);
+					}
+				}
+			}
+			
+			return $view;
+		}
+
+		$fieldValues = \XF::finder('XF:UserFieldValue')->where('user_id', $visitor->user_id)->fetch();
+		
+		$sxfcoreFields = [];
+		foreach ($fieldValues as $fieldValue)
+		{
+			$sxfcoreFields[$fieldValue->field_id] = $fieldValue;
+		}
+		
+		$view->setParams([
+			'sxfcore_fields' => $sxfcoreFields
+		]);
+		
+		return $view;
+	}
 }

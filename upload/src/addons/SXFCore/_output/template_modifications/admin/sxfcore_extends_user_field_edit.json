@@ -1,0 +1,9 @@
+{
+    "template": "user_field_edit",
+    "description": "Hide user filed option.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "\t\t\t<xf:option name=\"viewable_message\" selected=\"$field.viewable_message\"\n\t\t\t\tlabel=\"{{ phrase('viewable_in_message_user_info') }}\"\n\t\t\t\thint=\"{{ phrase('dependent_upon_show_custom_fields_style_property') }}\" />",
+    "replace": "$0\n<xf:option name=\"sxfcore_hide_field\" selected=\"$field.sxfcore_hide_field\"\n\tlabel=\"{{ phrase('sxfcore_this_field_can_be_hidden_by_the_user') }}\"\n\thint=\"{{ phrase('sxfcore_this_field_can_be_hidden_by_the_user_explain') }}\" />"
+}

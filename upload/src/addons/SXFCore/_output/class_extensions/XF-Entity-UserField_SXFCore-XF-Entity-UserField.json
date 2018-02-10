@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\UserField",
+    "to_class": "SXFCore\\XF\\Entity\\UserField",
+    "execute_order": 10,
+    "active": true
+}

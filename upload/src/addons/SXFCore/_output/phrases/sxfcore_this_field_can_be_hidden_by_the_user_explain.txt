@@ -1,0 +1,1 @@
+The field will be displayed only to the user who hides it, as well as to the chief administrator and the main moderator.

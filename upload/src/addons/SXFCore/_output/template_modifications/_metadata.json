@@ -1,0 +1,20 @@
+{
+    "admin/sxfcore_extends_user_edit_one.json": {
+        "hash": "58e2472cf11d60e311f1f61f92520fcd"
+    },
+    "admin/sxfcore_extends_user_field_edit.json": {
+        "hash": "ddf1c0a1d93989f9a5c70f4351686fb6"
+    },
+    "admin/user_edit.json": {
+        "hash": "529e992bddcd5a7c5904d6ba3ee0b425"
+    },
+    "public/sxfcore_extends_account_details_two.json": {
+        "hash": "fcc4484e3edea39b8fbb72a019d3e5ef"
+    },
+    "public/sxfcore_extends_member_about.json": {
+        "hash": "d82b0b07b58c2af0fb19c0c76c695dfb"
+    },
+    "public/sxfcore_extends_post_macros.json": {
+        "hash": "607b7e3aa1e237e043eb0e75a420efc4"
+    }
+}

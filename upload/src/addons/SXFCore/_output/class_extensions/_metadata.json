@@ -1,0 +1,26 @@
+{
+    "XF-Admin-Controller-UserField_SXFCore-XF-Admin-Controller-UserField.json": {
+        "hash": "c0d7b2c34c771febc119b3489f2e7016"
+    },
+    "XF-Admin-Controller-User_SXFCore-XF-Admin-Controller-User.json": {
+        "hash": "4c3fdec04dce4db30cdaf0e9cb1dbd30"
+    },
+    "XF-Entity-ThreadField_SXFCore-XF-Entity-ThreadField.json": {
+        "hash": "16bb6c5472f8dd476e6d959647d06d83"
+    },
+    "XF-Entity-UserFieldValue_SXFCore-XF-Entity-UserFieldValue.json": {
+        "hash": "971660662278057e63f7426c22e808e5"
+    },
+    "XF-Entity-UserField_SXFCore-XF-Entity-UserField.json": {
+        "hash": "ade6be99a5f9fe11478d35493c7be830"
+    },
+    "XF-Pub-Controller-Account_SXFCore-XF-Pub-Controller-Account.json": {
+        "hash": "d4f019c933c3f036ab98006321195776"
+    },
+    "XF-Pub-Controller-Member_SXFCore-XF-Pub-Controller-Member.json": {
+        "hash": "d339ec0467036e2bfcbadfd8ce58cdaa"
+    },
+    "XF-Repository-UserField_SXFCore-XF-Repository-UserField.json": {
+        "hash": "37c50e8ebb1bc76dd3793faf66a39cd3"
+    }
+}

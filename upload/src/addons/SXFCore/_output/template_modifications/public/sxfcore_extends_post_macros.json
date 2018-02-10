@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Replace field macros.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:macro template=\"custom_fields_macros\" name=\"custom_fields_view\"(.*)\\/>/Us",
+    "replace": "<xf:macro template=\"sxfcore_custom_fields_macros\" name=\"custom_fields_view\"\n\targ-entity=\"{$post}\"\n\t$1/>"
+}

@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\ThreadField",
+    "to_class": "SXFCore\\XF\\Entity\\ThreadField",
+    "execute_order": 10,
+    "active": true
+}

@@ -36,6 +36,30 @@ class MySql
 			}
 		];
 		
+		$data['xf_user_field'] = [
+			'import' => true,
+			'create_alter' => function(Alter $table)
+			{
+				$table->addColumn('sxfcore_hide_field', 'TINYINT')->setDefault(0);
+			},
+			'drop_alter' => function(Alter $table)
+			{
+				$table->dropColumns('sxfcore_hide_field');
+			}
+		];
+		
+		$data['xf_user_field_value'] = [
+			'import' => true,
+			'create_alter' => function(Alter $table)
+			{
+				$table->addColumn('sxfcore_hide_field', 'ENUM')->values('hide', 'subscriber', 'authorized', 'all')->setDefault('hide');
+			},
+			'drop_alter' => function(Alter $table)
+			{
+				$table->dropColumns('sxfcore_hide_field');
+			}
+		];
+		
 		return $data;
 	}
 }
