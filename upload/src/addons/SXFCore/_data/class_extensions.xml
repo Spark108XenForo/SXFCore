@@ -2,10 +2,8 @@
 <class_extensions>
   <extension from_class="XF\Admin\Controller\ThreadField" to_class="SXFCore\XF\Admin\Controller\ThreadField" execute_order="10" active="1"/>
   <extension from_class="XF\Admin\Controller\User" to_class="SXFCore\XF\Admin\Controller\User" execute_order="10" active="1"/>
-  <extension from_class="XF\Admin\Controller\UserField" to_class="SXFCore\XF\Admin\Controller\UserField" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\ThreadField" to_class="SXFCore\XF\Entity\ThreadField" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\User" to_class="SXFCore\XF\Entity\User" execute_order="10" active="1"/>
-  <extension from_class="XF\Entity\UserField" to_class="SXFCore\XF\Entity\UserField" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\UserFieldValue" to_class="SXFCore\XF\Entity\UserFieldValue" execute_order="10" active="1"/>
   <extension from_class="XF\Pub\Controller\Account" to_class="SXFCore\XF\Pub\Controller\Account" execute_order="10" active="1"/>
   <extension from_class="XF\Pub\Controller\Member" to_class="SXFCore\XF\Pub\Controller\Member" execute_order="10" active="1"/>

@@ -5,5 +5,5 @@
     "enabled": true,
     "action": "preg_replace",
     "find": "/<xf:macro template=\"custom_fields_macros\" name=\"custom_fields_view\"(.*)\\/>/Us",
-    "replace": "<xf:macro template=\"sxfcore_custom_fields_macros\" name=\"custom_fields_view\"\n\targ-entity=\"{$post}\"\n\t$1/>"
+    "replace": "<xf:if is=\"{$sxfCoreComponents.thread_field_hide}\">\n<xf:macro template=\"sxfcore_custom_fields_macros\" name=\"custom_fields_view\"\n\targ-entity=\"{$post}\"\n\t$1/>\n<xf:else />\n\t$0\n</xf:if>"
 }

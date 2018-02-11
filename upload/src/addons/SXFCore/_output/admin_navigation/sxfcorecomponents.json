@@ -1,0 +1,9 @@
+{
+    "parent_navigation_id": "sxfcore",
+    "display_order": 0,
+    "link": "sxfcorecomponents",
+    "icon": "fa-buromobelexperte",
+    "admin_permission_id": "",
+    "debug_only": false,
+    "hide_no_children": false
+}

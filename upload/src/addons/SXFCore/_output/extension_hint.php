@@ -3,6 +3,11 @@
 // ################## THIS IS A GENERATED FILE ##################
 // DO NOT EDIT DIRECTLY. EDIT THE CLASS EXTENSIONS IN THE CONTROL PANEL.
 
+namespace SXFCore\XF\Admin
+{
+	class XFCP_App extends \XF\Admin\App {}
+}
+
 namespace SXFCore\XF\Admin\Controller
 {
 	class XFCP_ThreadField extends \XF\Admin\Controller\ThreadField {}

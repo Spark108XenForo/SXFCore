@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "sxfcorecomponents",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "SXFCore:Component",
+    "context": "sxfcorecomponents",
+    "action_prefix": ""
+}

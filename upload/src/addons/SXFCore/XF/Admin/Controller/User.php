@@ -10,17 +10,20 @@ class User extends XFCP_User
 	{
 		$view = parent::actionEdit($params);
 		
-		$fieldValues = \XF::finder('XF:UserFieldValue')->where('user_id', $params->user_id)->fetch();
-		
-		$sxfcoreFields = [];
-		foreach ($fieldValues as $fieldValue)
+		if ($this->getComponentRepo()->isEnabled('user_field_hide'))
 		{
-			$sxfcoreFields[$fieldValue->field_id] = $fieldValue;
+			$fieldValues = \XF::finder('XF:UserFieldValue')->where('user_id', $params->user_id)->fetch();
+			
+			$sxfcoreFields = [];
+			foreach ($fieldValues as $fieldValue)
+			{
+				$sxfcoreFields[$fieldValue->field_id] = $fieldValue;
+			}
+			
+			$view->setParams([
+				'sxfcore_fields' => $sxfcoreFields
+			]);
 		}
-		
-		$view->setParams([
-			'sxfcore_fields' => $sxfcoreFields
-		]);
 		
 		return $view;
 	}
@@ -29,21 +32,32 @@ class User extends XFCP_User
 	{
 		$form = parent::userSaveProcess($user);
 		
-		$fieldHides = $this->filter('sxfcorefield_hide', 'array');
-				
-		foreach ($fieldHides as $key => $value)
+		if ($this->getComponentRepo()->isEnabled('user_field_hide'))
 		{
-			$fieldValue = \XF::finder('XF:UserFieldValue')->where([
-				'field_id' => $key,
-				'user_id' => $user->user_id
-			])->fetchOne();
+			$fieldHides = $this->filter('sxfcorefield_hide', 'array');
 					
-			if ($fieldValue)
+			foreach ($fieldHides as $key => $value)
 			{
-				$fieldValue->fastUpdate('sxfcore_hide_field', $value);
+				$fieldValue = \XF::finder('XF:UserFieldValue')->where([
+					'field_id' => $key,
+					'user_id' => $user->user_id
+				])->fetchOne();
+						
+				if ($fieldValue)
+				{
+					$fieldValue->fastUpdate('sxfcore_hide_field', $value);
+				}
 			}
 		}
 		
 		return $form;
+	}
+	
+	/**
+	 * @return \SXFCore\Repository\Component
+	 */
+	protected function getComponentRepo()
+	{
+		return $this->repository('SXFCore:Component');
 	}
 }

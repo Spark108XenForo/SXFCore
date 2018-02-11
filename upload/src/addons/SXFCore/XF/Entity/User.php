@@ -10,9 +10,14 @@ class User extends XFCP_User
 	{
 		$structure = parent::getStructure($structure);
 		
-		$structure->columns += [
-			'sxfcore_gender' => ['type' => self::STR, 'nullable' => true, 'allowedValues' => ['male', 'female']]
-		];
+		$componentRepo = \XF::repository('SXFCore:Component');
+		
+		if ($componentRepo->isEnabled('user_gender'))
+		{
+			$structure->columns += [
+				'sxfcore_gender' => ['type' => self::STR, 'nullable' => true, 'allowedValues' => ['male', 'female']]
+			];
+		}
 		
 		return $structure;
 	}

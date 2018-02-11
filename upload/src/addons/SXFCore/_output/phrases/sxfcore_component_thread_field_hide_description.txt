@@ -1,0 +1,1 @@
+Hiding the values of additional topics fields from certain user groups. The setting is performed for each additional theme field. <span style="color:red">Note that the topic's author and administrator will ignore these settings.</span>

@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Gender",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:macro template=\"helper_account\" name=\"dob_privacy_row\" />",
+    "replace": "$0\n<xf:if is=\"{$sxfCoreComponents.user_gender}\">\n\t<xf:macro template=\"sxfcore_helper_gender_edit\" name=\"gender\" arg-user=\"{$xf.visitor}\"/>\n</xf:if>"
+}

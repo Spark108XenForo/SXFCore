@@ -1,0 +1,39 @@
+<xf:title>{{ phrase('admin_navigation.sxfcorecomponents') }}</xf:title>
+
+<xf:form action="{{ link('sxfcorecomponents/toggle') }}" ajax="true" class="block block-container">
+	<xf:datalist>
+		<xf:foreach loop="{$components}" value="$component">
+			<tbody class="dataList-rowGroup">
+				<xf:datarow rowtype="subsection" rowclass="dataList-row--noHover">
+					<xf:cell>{$component.title}</xf:cell>
+				
+					<xf:cell href="{{ link('sxfcorecomponents/components') }}" overlay="true">
+						{{ phrase('sxfcore_dependent_components:') }}
+						{{ $component.component_dependencies ? $component.component_dependencies.count() : '0' }}
+					</xf:cell>
+				
+					<xf:cell href="{{ link('sxfcorecomponents/add-ons') }}" overlay="true">
+						{{ phrase('sxfcore_dependent_addons:') }}
+						{{ $component.addon_dependencies ? $component.addon_dependencies.count() : '0' }}
+					</xf:cell>
+				
+					<xf:if is="!{$component.error}">
+						<xf:toggle name="enabled[{$component.component_id}]" selected="{$component.enabled}"
+							class="dataList-cell--separated" submit="true"
+							tooltip="{{ phrase('enable_disable_x', {'title': $component.title}) }}" />
+					</xf:if>
+				</xf:datarow>
+				
+				<xf:datarow>
+					<xf:cell colspan="4">{$component.description}</xf:cell>
+				</xf:datarow>
+				
+				<xf:if is="{$component.error}">
+					<xf:datarow>
+						<xf:cell colspan="4">{$component.error|raw}</xf:cell>
+					</xf:datarow>
+				</xf:if>
+			</tbody>
+		</xf:foreach>
+	</xf:datalist>
+</xf:form>

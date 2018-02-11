@@ -10,18 +10,23 @@ class UserFieldValue extends XFCP_UserFieldValue
 	{
 		$structure = parent::getStructure($structure);
 
-		$structure->columns['sxfcore_hide_field'] = ['type' => self::STR, 'default' => 'hide',
-			'allowedValue' => ['hide', 'subscriber', 'authorized', 'all']
-		];
+		$componentRepo = \XF::repository('SXFCore:Component');
 		
-		$structure->relations += [
-			'User' => [
-				'entity' => 'XF:User',
-				'type' => self::TO_ONE,
-				'conditions' => 'user_id',
-				'primary' => true
-			]
-		];
+		if ($componentRepo->isEnabled('user_field_hide'))
+		{
+			$structure->columns['sxfcore_hide_field'] = ['type' => self::STR, 'default' => 'hide',
+				'allowedValue' => ['hide', 'subscriber', 'authorized', 'all']
+			];
+		
+			$structure->relations += [
+				'User' => [
+					'entity' => 'XF:User',
+					'type' => self::TO_ONE,
+					'conditions' => 'user_id',
+					'primary' => true
+				]
+			];
+		}
 		
 		return $structure;
 	}

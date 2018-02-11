@@ -1,0 +1,1 @@
+This function was removed and was removed from the CMS after upgrading to version 2.0.0. In the user profile, you can select the user's gender. Also, the setting can be changed via ACP.

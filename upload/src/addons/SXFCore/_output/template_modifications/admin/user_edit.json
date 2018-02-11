@@ -5,5 +5,5 @@
     "enabled": true,
     "action": "str_replace",
     "find": "<xf:macro template=\"public:helper_user_dob_edit\" name=\"dob_edit\" arg-dobData=\"{$user.Profile}\" />",
-    "replace": "$0\n<xf:macro template=\"public:sxfcore_helper_gender_edit\" name=\"gender\" arg-user=\"{$user}\" />"
+    "replace": "$0\n<xf:if is=\"{$sxfCoreComponents.user_gender}\">\n\t<xf:macro template=\"public:sxfcore_helper_gender_edit\" name=\"gender\" arg-user=\"{$user}\" />\n</xf:if>"
 }

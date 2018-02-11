@@ -9,6 +9,27 @@ class MySql
 {
 	public function get($data)
 	{
+		$data['sxfcore_component'] = [
+			'import' => true,
+			'create' => function (Create $table)
+			{
+				$table->addColumn('component_id', 'VARBINARY', 50);
+				$table->addColumn('addon_dependencies', 'MEDIUMBLOB')->nullable();
+				$table->addColumn('component_dependencies', 'MEDIUMBLOB')->nullable();
+				$table->addColumn('enabled', 'TINYINT')->setDefault(1);
+				
+				$table->addPrimaryKey('component_id');
+			},
+			'create_query' => "
+				INSERT INTO [table] 
+					(`component_id`, `addon_dependencies`, `component_dependencies`, `enabled`) 
+				VALUES
+					(0x7468726561645F6669656C645F68696465, NULL, NULL, 1),
+					(0x757365725F6669656C645F68696465, NULL, NULL, 1),
+					(0x757365725f67656e646572, NULL, NULL, 1);
+			"
+		];
+		
 		$data['xf_user'] = [
 			'import' => true,
 			//'create' => '',

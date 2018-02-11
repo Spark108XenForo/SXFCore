@@ -1,20 +1,26 @@
 {
+    "admin/sxfcore_extends_thread_field_edit.json": {
+        "hash": "0ce5ff7594d5ad653372e31687d4e977"
+    },
     "admin/sxfcore_extends_user_edit_one.json": {
-        "hash": "58e2472cf11d60e311f1f61f92520fcd"
+        "hash": "509e0f47edce2fc5d39796ad4ae3dd67"
     },
     "admin/sxfcore_extends_user_field_edit.json": {
         "hash": "ddf1c0a1d93989f9a5c70f4351686fb6"
     },
     "admin/user_edit.json": {
-        "hash": "529e992bddcd5a7c5904d6ba3ee0b425"
+        "hash": "12d4ff768c67270bcd07aa46fcbbed59"
+    },
+    "public/account_details.json": {
+        "hash": "1a328314eb999532b6229e9f6e097088"
     },
     "public/sxfcore_extends_account_details_two.json": {
-        "hash": "fcc4484e3edea39b8fbb72a019d3e5ef"
+        "hash": "de7ad79299aa3107502296867c851688"
     },
     "public/sxfcore_extends_member_about.json": {
-        "hash": "d82b0b07b58c2af0fb19c0c76c695dfb"
+        "hash": "0db40359a99e14e4701c74e02f24a1ae"
     },
     "public/sxfcore_extends_post_macros.json": {
-        "hash": "607b7e3aa1e237e043eb0e75a420efc4"
+        "hash": "add27bcdcc4452d493103316f6370395"
     }
 }

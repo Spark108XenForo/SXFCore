@@ -10,7 +10,12 @@ class ThreadField extends XFCP_ThreadField
 	{
 		$structure = parent::getStructure($structure);
 
-		$structure->columns['viewable_user_group_ids'] = ['type' => self::LIST_COMMA, 'default' => [-1]];
+		$componentRepo = \XF::repository('SXFCore:Component');
+		
+		if ($componentRepo->isEnabled('thread_field_hide'))
+		{
+			$structure->columns['viewable_user_group_ids'] = ['type' => self::LIST_COMMA, 'default' => [-1]];
+		}
 		
 		return $structure;
 	}

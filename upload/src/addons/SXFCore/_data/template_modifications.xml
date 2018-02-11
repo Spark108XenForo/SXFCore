@@ -3,45 +3,69 @@
   <modification type="public" template="account_details" modification_key="account_details" description="Gender" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:macro template="helper_account" name="dob_privacy_row" />]]></find>
     <replace><![CDATA[$0
-<xf:macro template="sxfcore_helper_gender_edit" name="gender" arg-user="{$xf.visitor}"/>]]></replace>
+<xf:if is="{$sxfCoreComponents.user_gender}">
+	<xf:macro template="sxfcore_helper_gender_edit" name="gender" arg-user="{$xf.visitor}"/>
+</xf:if>]]></replace>
   </modification>
   <modification type="public" template="account_details" modification_key="sxfcore_extends_account_details_two" description="Replace field macros." execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[/<xf:macro template="custom_fields_macros" name="custom_fields_edit"\s+(.*?)\s+\/>/Su]]></find>
-    <replace><![CDATA[<xf:macro template="sxfcore_custom_fields_macros" name="custom_fields_edit"
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.user_field_hide}">
+<xf:macro template="sxfcore_custom_fields_macros" name="custom_fields_edit"
 	arg-sxfcorefields="{$sxfcore_fields}"
-	$1/>]]></replace>
+	$1/>
+<xf:else />
+	$0
+</xf:if>]]></replace>
   </modification>
   <modification type="public" template="member_about" modification_key="sxfcore_extends_member_about" description="Replace field macros." execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[/<xf:macro template="custom_fields_macros" name="custom_fields_view"(.*)\/>/Us]]></find>
-    <replace><![CDATA[<xf:macro template="sxfcore_custom_fields_macros" 
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.user_field_hide}">
+<xf:macro template="sxfcore_custom_fields_macros" 
 	name="custom_fields_view" 
 	arg-sxfcorefields="{$sxfcore_fields}"
-$1/>]]></replace>
+$1/>
+<xf:else />
+$0
+</xf:if>]]></replace>
   </modification>
   <modification type="public" template="post_macros" modification_key="sxfcore_extends_post_macros" description="Replace field macros." execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[/<xf:macro template="custom_fields_macros" name="custom_fields_view"(.*)\/>/Us]]></find>
-    <replace><![CDATA[<xf:macro template="sxfcore_custom_fields_macros" name="custom_fields_view"
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.thread_field_hide}">
+<xf:macro template="sxfcore_custom_fields_macros" name="custom_fields_view"
 	arg-entity="{$post}"
-	$1/>]]></replace>
+	$1/>
+<xf:else />
+	$0
+</xf:if>]]></replace>
   </modification>
   <modification type="admin" template="thread_field_edit" modification_key="sxfcore_extends_thread_field_edit" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:macro template="base_custom_field_macros" name="common_options"
 			arg-field="{$field}"
 			arg-supportsGroupEditable="{{ true }}"/>]]></find>
-    <replace><![CDATA[<xf:macro template="sxfcore_base_custom_field_macros" name="common_options"
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.thread_field_hide}">
+<xf:macro template="sxfcore_base_custom_field_macros" name="common_options"
 			arg-field="{$field}"
 			arg-supportsGroupEditable="{{ true }}"
-		  	arg-supportsGroupViewable="{{ true }}"/>]]></replace>
+		  	arg-supportsGroupViewable="{{ true }}"/>
+<xf:else />
+	$0
+</xf:if>]]></replace>
   </modification>
   <modification type="admin" template="user_edit" modification_key="user_edit" description="Gender" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:macro template="public:helper_user_dob_edit" name="dob_edit" arg-dobData="{$user.Profile}" />]]></find>
     <replace><![CDATA[$0
-<xf:macro template="public:sxfcore_helper_gender_edit" name="gender" arg-user="{$user}" />]]></replace>
+<xf:if is="{$sxfCoreComponents.user_gender}">
+	<xf:macro template="public:sxfcore_helper_gender_edit" name="gender" arg-user="{$user}" />
+</xf:if>]]></replace>
   </modification>
   <modification type="admin" template="user_edit" modification_key="sxfcore_extends_user_edit_one" description="Replace field macros." execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[/<xf:macro template="public:custom_fields_macros" name="custom_fields_edit"\s+(.*?)\s+\/>/Su]]></find>
-    <replace><![CDATA[<xf:macro template="public:sxfcore_custom_fields_macros" name="custom_fields_edit"
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.user_field_hide}">
+<xf:macro template="public:sxfcore_custom_fields_macros" name="custom_fields_edit"
 	arg-sxfcorefields="{$sxfcore_fields}"
-	$1/>]]></replace>
+	$1/>
+<xf:else />
+	$0
+</xf:if>]]></replace>
   </modification>
 </template_modifications>

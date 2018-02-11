@@ -43,6 +43,45 @@
 		<xf:formrow explain="{{ phrase('sxfcore_viewable_by_user_groups_explain') }}" />
 	</xf:if>
 </xf:macro>]]></template>
+  <template type="admin" title="sxfcore_component_list" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[<xf:title>{{ phrase('admin_navigation.sxfcorecomponents') }}</xf:title>
+
+<xf:form action="{{ link('sxfcorecomponents/toggle') }}" ajax="true" class="block block-container">
+	<xf:datalist>
+		<xf:foreach loop="{$components}" value="$component">
+			<tbody class="dataList-rowGroup">
+				<xf:datarow rowtype="subsection" rowclass="dataList-row--noHover">
+					<xf:cell>{$component.title}</xf:cell>
+				
+					<xf:cell href="{{ link('sxfcorecomponents/components') }}" overlay="true">
+						{{ phrase('sxfcore_dependent_components:') }}
+						{{ $component.component_dependencies ? $component.component_dependencies.count() : '0' }}
+					</xf:cell>
+				
+					<xf:cell href="{{ link('sxfcorecomponents/add-ons') }}" overlay="true">
+						{{ phrase('sxfcore_dependent_addons:') }}
+						{{ $component.addon_dependencies ? $component.addon_dependencies.count() : '0' }}
+					</xf:cell>
+				
+					<xf:if is="!{$component.error}">
+						<xf:toggle name="enabled[{$component.component_id}]" selected="{$component.enabled}"
+							class="dataList-cell--separated" submit="true"
+							tooltip="{{ phrase('enable_disable_x', {'title': $component.title}) }}" />
+					</xf:if>
+				</xf:datarow>
+				
+				<xf:datarow>
+					<xf:cell colspan="4">{$component.description}</xf:cell>
+				</xf:datarow>
+				
+				<xf:if is="{$component.error}">
+					<xf:datarow>
+						<xf:cell colspan="4">{$component.error|raw}</xf:cell>
+					</xf:datarow>
+				</xf:if>
+			</tbody>
+		</xf:foreach>
+	</xf:datalist>
+</xf:form>]]></template>
   <template type="public" title="sxfcore_custom_fields_macros" version_id="1000332" version_string="1.0.3 Beta 2"><![CDATA[<xf:macro name="custom_fields_view"
 	arg-sxfcorefields=""
 	arg-entity=""

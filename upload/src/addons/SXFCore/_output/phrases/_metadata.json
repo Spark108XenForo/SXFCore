@@ -1,4 +1,64 @@
 {
+    "admin_navigation.sxfcore.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "83f086e2fc9afdf1e2d2894186cdf021"
+    },
+    "admin_navigation.sxfcorecomponents.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "814f0d3f1c3c582042a6e6fc7abac9f6"
+    },
+    "sxfcore_component_thread_field_hide.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "d7a84cbd3ee736f4c2e0eab406f06834"
+    },
+    "sxfcore_component_thread_field_hide_description.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "d8fb4c3d2d5ae7ca7d69b33a62f8bc2c"
+    },
+    "sxfcore_component_user_field_hide.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "d8803bc065143084589f096bc4b93c02"
+    },
+    "sxfcore_component_user_field_hide_description.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "477aad9618c4a26ce66a4a98c262dcf6"
+    },
+    "sxfcore_component_user_gender.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "15ca92726bdad633f0f7b9449cd325e9"
+    },
+    "sxfcore_component_user_gender_description.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "c5be48b354659d03565dcc4fd2fc8eca"
+    },
+    "sxfcore_dependent_addons.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "781bd257aafa8f3e9c5c93574c50aa21"
+    },
+    "sxfcore_dependent_components.txt": {
+        "global_cache": false,
+        "version_id": 1010031,
+        "version_string": "1.1.0 Beta 1",
+        "hash": "d8b22fac23db19efd0c750bff97faa4a"
+    },
     "sxfcore_the_user_has_forbidden_to_view_this_information.txt": {
         "global_cache": false,
         "version_id": 1000332,

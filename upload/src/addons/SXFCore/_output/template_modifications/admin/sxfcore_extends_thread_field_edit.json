@@ -1,0 +1,9 @@
+{
+    "template": "thread_field_edit",
+    "description": "",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:macro template=\"base_custom_field_macros\" name=\"common_options\"\n\t\t\targ-field=\"{$field}\"\n\t\t\targ-supportsGroupEditable=\"{{ true }}\"/>",
+    "replace": "<xf:if is=\"{$sxfCoreComponents.thread_field_hide}\">\n<xf:macro template=\"sxfcore_base_custom_field_macros\" name=\"common_options\"\n\t\t\targ-field=\"{$field}\"\n\t\t\targ-supportsGroupEditable=\"{{ true }}\"\n\t\t  \targ-supportsGroupViewable=\"{{ true }}\"/>\n<xf:else />\n\t$0\n</xf:if>"
+}

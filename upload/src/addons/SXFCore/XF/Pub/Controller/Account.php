@@ -8,16 +8,19 @@ class Account extends XFCP_Account
 	{
 		$form = parent::accountDetailsSaveProcess($visitor);
 		
-		$input = $this->filter([
-			'sxfcore_gender' => 'str'
-		]);
-		
-		if (!$input['sxfcore_gender'])
+		if ($this->getComponentRepo()->isEnabled('user_gender'))
 		{
-			$input['sxfcore_gender'] = null;
+			$input = $this->filter([
+				'sxfcore_gender' => 'str'
+			]);
+			
+			if (!$input['sxfcore_gender'])
+			{
+				$input['sxfcore_gender'] = null;
+			}
+			
+			$form->basicEntitySave($visitor, $input);
 		}
-		
-		$form->basicEntitySave($visitor, $input);
 		
 		return $form;
 	}
@@ -25,44 +28,55 @@ class Account extends XFCP_Account
 	public function actionAccountDetails()
 	{
 		$view = parent::actionAccountDetails();
-		
-		$visitor = \XF::visitor();
 
-		if ($this->isPost())
+		if ($this->getComponentRepo()->isEnabled('user_field_hide'))
 		{
-			if ($visitor->canEditProfile())
+			$visitor = \XF::visitor();
+
+			if ($this->isPost())
 			{
-				$fieldHides = $this->filter('sxfcorefield_hide', 'array');
-				
-				foreach ($fieldHides as $key => $value)
+				if ($visitor->canEditProfile())
 				{
-					$fieldValue = \XF::finder('XF:UserFieldValue')->where([
-						'field_id' => $key,
-						'user_id' => $visitor->user_id
-					])->fetchOne();
-					
-					if ($fieldValue)
+					$fieldHides = $this->filter('sxfcorefield_hide', 'array');
+
+					foreach ($fieldHides as $key => $value)
 					{
-						$fieldValue->fastUpdate('sxfcore_hide_field', $value);
+						$fieldValue = \XF::finder('XF:UserFieldValue')->where([
+							'field_id' => $key,
+							'user_id' => $visitor->user_id
+						])->fetchOne();
+						
+						if ($fieldValue)
+						{
+							$fieldValue->fastUpdate('sxfcore_hide_field', $value);
+						}
 					}
 				}
+				
+				return $view;
+			}
+
+			$fieldValues = \XF::finder('XF:UserFieldValue')->where('user_id', $visitor->user_id)->fetch();
+			
+			$sxfcoreFields = [];
+			foreach ($fieldValues as $fieldValue)
+			{
+				$sxfcoreFields[$fieldValue->field_id] = $fieldValue;
 			}
 			
-			return $view;
+			$view->setParams([
+				'sxfcore_fields' => $sxfcoreFields
+			]);
 		}
-
-		$fieldValues = \XF::finder('XF:UserFieldValue')->where('user_id', $visitor->user_id)->fetch();
-		
-		$sxfcoreFields = [];
-		foreach ($fieldValues as $fieldValue)
-		{
-			$sxfcoreFields[$fieldValue->field_id] = $fieldValue;
-		}
-		
-		$view->setParams([
-			'sxfcore_fields' => $sxfcoreFields
-		]);
 		
 		return $view;
+	}
+	
+	/**
+	 * @return \SXFCore\Repository\Component
+	 */
+	protected function getComponentRepo()
+	{
+		return $this->repository('SXFCore:Component');
 	}
 }

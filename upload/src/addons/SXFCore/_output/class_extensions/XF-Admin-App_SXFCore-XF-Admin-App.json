@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Admin\\App",
+    "to_class": "SXFCore\\XF\\Admin\\App",
+    "execute_order": 10,
+    "active": true
+}
