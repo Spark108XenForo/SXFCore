@@ -2,12 +2,26 @@
 <phrases>
   <phrase title="admin_navigation.sxfcore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[[SXF] Core]]></phrase>
   <phrase title="admin_navigation.sxfcorecomponents" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Core components]]></phrase>
+  <phrase title="option.tagPosition" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Tag Display Position]]></phrase>
+  <phrase title="option_explain.tagPosition" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[This controls the general position on the page where tags will be displayed. The exact position may differ per content type being tagged.]]></phrase>
+  <phrase title="sxfcore_component_dependent_addons" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Dependent Add-ons]]></phrase>
+  <phrase title="sxfcore_component_disabled_warning_addon_dependencies" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[This component has {count} dependent add-ons. If you turn off, you may experience unforeseen disruptions in the operation of the site!]]></phrase>
+  <phrase title="sxfcore_component_other" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Other]]></phrase>
+  <phrase title="sxfcore_component_other_description" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Minor edits:
+<ul>
+	<li>The position of hashtags in the topic/resource.</li>
+</ul>]]></phrase>
   <phrase title="sxfcore_component_thread_field_hide" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Hiding the values of add. theme fields]]></phrase>
   <phrase title="sxfcore_component_thread_field_hide_description" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Hiding the values of additional topics fields from certain user groups. The setting is performed for each additional theme field. <span style="color:red">Note that the topic's author and administrator will ignore these settings.</span>]]></phrase>
   <phrase title="sxfcore_component_user_field_hide" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Hiding the values of add. user fields]]></phrase>
   <phrase title="sxfcore_component_user_field_hide_description" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Hiding the values of additional user fields in the profile. Each user can customize by editing his profile, above each additional field there is a dropdown list with a choice of display options: "Only me" - Where the value of the field sees only the user; "Subscribers only" - Where only the user and his / her subscribers see the value of the field; "Only authorized" - Where the value of the field can be seen by all authorized users; "All users" - Where the value of the field can be seen by absolutely all users, including unauthorized users. <span style = "color: red"> Note that the administrator always sees the value of the fields regardless of the user's settings. </ span> You can also configure via ACP.]]></phrase>
   <phrase title="sxfcore_component_user_gender" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[User gender]]></phrase>
   <phrase title="sxfcore_component_user_gender_description" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[This function was removed and was removed from the CMS after upgrading to version 2.0.0. In the user profile, you can select the user's gender. Also, the setting can be changed via ACP.]]></phrase>
+  <phrase title="sxfcore_component_user_gender_developer" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[[code=php]
+$userId = 1;
+$user = \XF::finder('XF:User')->where('user_id', $userId)->fetchOne();
+$gender = $user->sxfcore_gender; //Gender: "male" Or "female".
+[/code]]]></phrase>
   <phrase title="sxfcore_dependent_addons" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Dependent add-ons]]></phrase>
   <phrase title="sxfcore_dependent_components" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Dependent components]]></phrase>
   <phrase title="sxfcore_gender" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Gender]]></phrase>

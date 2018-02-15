@@ -1,0 +1,1 @@
+This component has {count} dependent add-ons. If you turn off, you may experience unforeseen disruptions in the operation of the site!

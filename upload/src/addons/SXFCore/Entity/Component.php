@@ -17,9 +17,34 @@ class Component extends Entity
 		return \XF::phrase($this->getPhraseDescription());
 	}
 	
-	public function getError()
+	public function getDeveloper()
 	{
-		return null;
+		$phraseName = $this->getPhraseDeveloper();
+		$phrase = \XF::phrase($phraseName);
+		
+		if ($phraseName == $phrase)
+		{
+			return null;
+		}
+		
+		return $phrase;
+	}
+	
+	public function getErrors(&$errors = [])
+	{
+		return $errors;
+	}
+	
+	public function getWarnings(&$warnings = [])
+	{
+		if ($this->addon_dependencies)
+		{
+			$warnings[] = \XF::phrase('sxfcore_component_disabled_warning_addon_dependencies', [
+				'count' => count($this->addon_dependencies)
+			]);
+		}
+		
+		return $warnings;
 	}
 	
 	public function getPhraseName()
@@ -30,6 +55,43 @@ class Component extends Entity
 	public function getPhraseDescription()
 	{
 		return 'sxfcore_component_' . $this->component_id . '_description';
+	}
+	
+	public function getPhraseDeveloper()
+	{
+		return 'sxfcore_component_' . $this->component_id . '_developer';
+	}
+	
+	public function setAddonDependencies(\XF\AddOn\AddOn $addOn)
+	{
+		$addOnId = $addOn->addon_id;
+		
+		if (!$this->addon_dependencies)
+		{
+			$this->addon_dependencies = [$addOnId];
+		}
+		else if (!in_array($addOnId, $this->addon_dependencies))
+		{
+			$this->addon_dependencies[] = $addOnId;
+		}
+		
+		$this->fastUpdate('addon_dependencies', $this->addon_dependencies);
+	}
+	
+	public function deleteAddonDependencies(\XF\AddOn\AddOn $addOn)
+	{
+		$addOnId = $addOn->addon_id;
+		
+		if (!$this->addon_dependencies)
+		{
+			return;
+		}
+		else if (in_array($addOnId, $this->addon_dependencies))
+		{
+			$this->addon_dependencies = array_diff($this->addon_dependencies, [$addOnId]);
+			
+			$this->fastUpdate('addon_dependencies', $this->addon_dependencies);
+		}
 	}
 	
 	public static function getStructure(Structure $structure)
@@ -48,7 +110,9 @@ class Component extends Entity
 		$structure->getters = [
 			'title' => true,
 			'description' => true,
-			'error' => true
+			'developer' => true,
+			'errors' => true,
+			'warnings' => true
 		];
 		
 		$structure->relations = [];

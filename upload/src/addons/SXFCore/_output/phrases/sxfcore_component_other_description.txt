@@ -1,0 +1,4 @@
+Minor edits:
+<ul>
+	<li>The position of hashtags in the topic/resource.</li>
+</ul>

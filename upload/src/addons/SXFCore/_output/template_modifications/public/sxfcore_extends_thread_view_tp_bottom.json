@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Tag Position Bottom",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<div class=\"blockMessage blockMessage--none.*?<\\/div>)/is",
+    "replace": "<xf:if is=\"{$sxfCoreComponents.other}\">\n\t<xf:if is=\"{$threadTagsHtml} AND {$xf.options.tagPosition} == 'bottom'\">\n\t\t<ul class=\"listInline listInline--bullet\">\n\t\t\t{$threadTagsHtml|raw}\n\t\t</ul>\n\t</xf:if>\n</xf:if>\n$0"
+}

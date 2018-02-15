@@ -1,0 +1,9 @@
+{
+    "template": "xfrm_resource_view",
+    "description": "Tag Position Bottom",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<xf:if is=\"\\$latestUpdates is not empty\">.*?<\\/xf:if>)/Us",
+    "replace": "<xf:if is=\"{$sxfCoreComponents.other}\">\n\t<xf:if is=\"{$xf.options.tagPosition} == 'bottom'\">\n\t\t<div class=\"block p-description\">\n\t\t\t<ul class=\"listInline listInline--bullet\">\n\t\t\t\t<li>\n\t\t\t\t\t<i class=\"fa fa-tags\" aria-hidden=\"true\" title=\"{{ phrase('tags')|for_attr }}\"></i>\n\t\t\t\t\t<span class=\"u-srOnly\">{{ phrase('tags') }}</span>\n\n\t\t\t\t\t<xf:if is=\"$resource.tags\">\n\t\t\t\t\t\t<xf:foreach loop=\"$resource.tags\" value=\"$tag\">\n\t\t\t\t\t\t\t<a href=\"{{ link('tags', $tag) }}\" class=\"tagItem\" dir=\"auto\">{$tag.tag}</a>\n\t\t\t\t\t\t</xf:foreach>\n\t\t\t\t\t\t<xf:else />\n\t\t\t\t\t\t{{ phrase('none') }}\n\t\t\t\t\t</xf:if>\n\t\t\t\t\t<xf:if is=\"$resource.canEditTags()\">\n\t\t\t\t\t\t<a href=\"{{ link('resources/tags', $resource) }}\" class=\"u-concealed\" data-xf-click=\"overlay\"\n\t\t\t\t\t\t   data-xf-init=\"tooltip\" title=\"{{ phrase('edit_tags')|for_attr }}\">\n\t\t\t\t\t\t\t<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<span class=\"u-srOnly\">{{ phrase('edit') }}</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</xf:if>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<br />\n\t</xf:if>\n</xf:if>\n\n$0"
+}

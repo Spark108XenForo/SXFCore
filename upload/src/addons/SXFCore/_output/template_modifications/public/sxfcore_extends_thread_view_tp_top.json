@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Tag Position Top",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<xf:if is=\"\\$xf.options.enableTagging)(.*?<\\/xf:if>){3}/is",
+    "replace": "<xf:if is=\"{$sxfCoreComponents.other}\">\n\t<xf:set var=\"$threadTagsHtml\">\n\t\t$0\n\t</xf:set>\n\t<xf:if is=\"{$threadTagsHtml} AND {$xf.options.tagPosition} == 'top'\">\n\t\t{$threadTagsHtml|raw}\n\t</xf:if>\n<xf:else />\n\t$0\n</xf:if>"
+}

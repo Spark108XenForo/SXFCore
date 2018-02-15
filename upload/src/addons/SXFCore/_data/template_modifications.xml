@@ -51,6 +51,30 @@ $0
 	$0
 </xf:if>]]></replace>
   </modification>
+  <modification type="public" template="thread_view" modification_key="sxfcore_extends_thread_view_tp_top" description="Tag Position Top" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(<xf:if is="\$xf.options.enableTagging)(.*?<\/xf:if>){3}/is]]></find>
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.other}">
+	<xf:set var="$threadTagsHtml">
+		$0
+	</xf:set>
+	<xf:if is="{$threadTagsHtml} AND {$xf.options.tagPosition} == 'top'">
+		{$threadTagsHtml|raw}
+	</xf:if>
+<xf:else />
+	$0
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="thread_view" modification_key="sxfcore_extends_thread_view_tp_bottom" description="Tag Position Bottom" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(<div class="blockMessage blockMessage--none.*?<\/div>)/is]]></find>
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.other}">
+	<xf:if is="{$threadTagsHtml} AND {$xf.options.tagPosition} == 'bottom'">
+		<ul class="listInline listInline--bullet">
+			{$threadTagsHtml|raw}
+		</ul>
+	</xf:if>
+</xf:if>
+$0]]></replace>
+  </modification>
   <modification type="admin" template="user_edit" modification_key="user_edit" description="Gender" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:macro template="public:helper_user_dob_edit" name="dob_edit" arg-dobData="{$user.Profile}" />]]></find>
     <replace><![CDATA[$0
@@ -64,6 +88,50 @@ $0
 <xf:macro template="public:sxfcore_custom_fields_macros" name="custom_fields_edit"
 	arg-sxfcorefields="{$sxfcore_fields}"
 	$1/>
+<xf:else />
+	$0
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="xfrm_resource_view" modification_key="sxfcore_xfrm_resource_view_tp_bottom" description="Tag Position Bottom" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(<xf:if is="\$latestUpdates is not empty">.*?<\/xf:if>)/Us]]></find>
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.other}">
+	<xf:if is="{$xf.options.tagPosition} == 'bottom'">
+		<div class="block p-description">
+			<ul class="listInline listInline--bullet">
+				<li>
+					<i class="fa fa-tags" aria-hidden="true" title="{{ phrase('tags')|for_attr }}"></i>
+					<span class="u-srOnly">{{ phrase('tags') }}</span>
+
+					<xf:if is="$resource.tags">
+						<xf:foreach loop="$resource.tags" value="$tag">
+							<a href="{{ link('tags', $tag) }}" class="tagItem" dir="auto">{$tag.tag}</a>
+						</xf:foreach>
+						<xf:else />
+						{{ phrase('none') }}
+					</xf:if>
+					<xf:if is="$resource.canEditTags()">
+						<a href="{{ link('resources/tags', $resource) }}" class="u-concealed" data-xf-click="overlay"
+						   data-xf-init="tooltip" title="{{ phrase('edit_tags')|for_attr }}">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<span class="u-srOnly">{{ phrase('edit') }}</span>
+						</a>
+					</xf:if>
+				</li>
+			</ul>
+		</div>
+		
+		<br />
+	</xf:if>
+</xf:if>
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="xfrm_resource_wrapper_macros" modification_key="sxfcore_resource_wrapper_macros_tp_top" description="Tag Position Top" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(<xf:if is="\$xf.options.enableTagging)(.*?<\/xf:if>){3}/is]]></find>
+    <replace><![CDATA[<xf:if is="{$sxfCoreComponents.other}">
+	<xf:if is="{$xf.options.tagPosition} == 'top'">
+		$0
+	</xf:if>
 <xf:else />
 	$0
 </xf:if>]]></replace>

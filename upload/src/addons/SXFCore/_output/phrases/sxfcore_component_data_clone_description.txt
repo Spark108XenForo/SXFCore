@@ -1,0 +1,4 @@
+Allows you to copy data such as:
+<ul>
+<li> User Rights Groups. </ li>
+</ ul>

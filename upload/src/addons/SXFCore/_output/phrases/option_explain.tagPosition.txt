@@ -1,0 +1,1 @@
+This controls the general position on the page where tags will be displayed. The exact position may differ per content type being tagged.

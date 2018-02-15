@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <routes>
-  <route route_type="admin" route_prefix="sxfcorecomponents" controller="SXFCore:Component" context="sxfcorecomponents"/>
+  <route route_type="admin" route_prefix="sxfcorecomponents" format=":str&lt;component_id&gt;/" controller="SXFCore:Component" context="sxfcorecomponents"/>
 </routes>

@@ -7,17 +7,19 @@
 				<xf:datarow rowtype="subsection" rowclass="dataList-row--noHover">
 					<xf:cell>{$component.title}</xf:cell>
 				
-					<xf:cell href="{{ link('sxfcorecomponents/components') }}" overlay="true">
+					<xf:cell href="{{ link('sxfcorecomponents/components', $component) }}" overlay="true">
 						{{ phrase('sxfcore_dependent_components:') }}
-						{{ $component.component_dependencies ? $component.component_dependencies.count() : '0' }}
+						{{ count($component.component_dependencies) }}
 					</xf:cell>
 				
-					<xf:cell href="{{ link('sxfcorecomponents/add-ons') }}" overlay="true">
+					<xf:cell href="{{ link('sxfcorecomponents/add-ons', $component) }}" overlay="true">
 						{{ phrase('sxfcore_dependent_addons:') }}
-						{{ $component.addon_dependencies ? $component.addon_dependencies.count() : '0' }}
+						{{ count($component.addon_dependencies) }}
 					</xf:cell>
 				
-					<xf:if is="!{$component.error}">
+					<xf:if is="$component.errors is not empty">
+						<xf:cell />
+					<xf:else />
 						<xf:toggle name="enabled[{$component.component_id}]" selected="{$component.enabled}"
 							class="dataList-cell--separated" submit="true"
 							tooltip="{{ phrase('enable_disable_x', {'title': $component.title}) }}" />
@@ -28,10 +30,36 @@
 					<xf:cell colspan="4">{$component.description}</xf:cell>
 				</xf:datarow>
 				
-				<xf:if is="{$component.error}">
+				<xf:if is="{$xf.debug} AND {$component.developer}">
 					<xf:datarow>
-						<xf:cell colspan="4">{$component.error|raw}</xf:cell>
+						<xf:cell colspan="4">
+							<xf:datalist>
+								<xf:datarow>
+									<xf:cell><b>{{ phrase('developer') }}</b></xf:cell>
+									<xf:cell>{{ bb_code($component.developer, null, null) }}</xf:cell>
+								</xf:datarow>
+							</xf:datalist>
+						</xf:cell>
 					</xf:datarow>
+				</xf:if>
+				
+				<xf:if is="$component.warnings is not empty">
+					<xf:foreach loop="{$component.warnings}" value="$warning">
+						<xf:datarow>
+							<xf:cell colspan="4" style="color:orange">
+								{$warning|raw}
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:if>
+				<xf:if is="$component.errors is not empty">
+					<xf:foreach loop="{$component.errors}" value="$error">
+						<xf:datarow>
+							<xf:cell colspan="4" style="color:red">
+								{$error|raw}
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
 				</xf:if>
 			</tbody>
 		</xf:foreach>

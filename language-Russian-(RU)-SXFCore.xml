@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" currency_format="&quot;{value}&quot;{symbol}" week_start="1" decimal_point="." thousands_separator="," label_separator=":" comma_separator=", " ellipsis="..." parenthesis_open="(" parenthesis_close=")" language_code="ru-RU" text_direction="LTR" addon_id="SXFCore" export_version="2">
+  <phrase title="admin_navigation.sxfcore" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[[SXF] Core]]></phrase>
+  <phrase title="admin_navigation.sxfcorecomponents" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Компоненты ядра]]></phrase>
+  <phrase title="option.tagPosition" addon_id="SXFCore" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Позиция отображения тега]]></phrase>
+  <phrase title="option_explain.tagPosition" addon_id="SXFCore" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Это управляет общей позицией на странице, где будут отображаться теги. Точная позиция может отличаться по каждому типу содержимого.]]></phrase>
+  <phrase title="sxfcore_component_dependent_addons" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Зависимые плагины]]></phrase>
+  <phrase title="sxfcore_component_disabled_warning_addon_dependencies" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Этот компонент имеет {count} зависимых дополнений. При отключение могут возникнуть непредвиденные сбои в работе сайта!]]></phrase>
+  <phrase title="sxfcore_component_other" addon_id="SXFCore" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Другое]]></phrase>
+  <phrase title="sxfcore_component_other_description" addon_id="SXFCore" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[Небольшие изменения:
+<ul>
+	<li>Позиция хештегов в теме/ресурсе.</li>
+</ul>]]></phrase>
+  <phrase title="sxfcore_component_thread_field_hide" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Скрытие значений доп. полей тем]]></phrase>
+  <phrase title="sxfcore_component_thread_field_hide_description" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Сокрытие значений дополнительных полей тем от определенных групп пользователей. Настройка осуществляется для каждого дополнотельного поля тем. <span style="color:red">Обратите внимание, что автор темы и администратор будет игнорировать данные настройки.</span>]]></phrase>
+  <phrase title="sxfcore_component_user_field_hide" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Скрытие значений доп. полей пользователей]]></phrase>
+  <phrase title="sxfcore_component_user_field_hide_description" addon_id="SXFCore" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[Скрытие значений дополнительных полей пользователей в профиле. Каждый пользователь может осуществлять настройку редактируя свой профиль, над каждым дополнительным полем есть выподающий список с выбором параметров отображения: "Только я" - Где значение поля видит только пользователя; "Только подписчики" - Где значение поля видит только пользователь и его подписчики; "Только авторизованные" - Где значение поля могут видеть все авторизованные пользователи; "Все пользователи" - Где значение поля могут видеть абсолютно все пользователи, включая не авторизованных. <span style="color:red">Обратите внимание, что администратор всегда видит значение полей не зависимо от настроек пользователя.</span> Так же настройка может осуществляться через ACP.]]></phrase>
+  <phrase title="sxfcore_component_user_gender" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Пол пользователя]]></phrase>
+  <phrase title="sxfcore_component_user_gender_description" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Данная функция была удалена была удалена из CMS после перехода на версию 2.0.0. В профиле пользователя можно выбрать пол пользователя. Так же настройка может быть изменена через ACP.]]></phrase>
+  <phrase title="sxfcore_component_user_gender_developer" addon_id="SXFCore" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[[code=php]
+$userId = 1;
+$user = \XF::finder('XF:User')->where('user_id', $userId)->fetchOne();
+$gender = $user->sxfcore_gender; //Пол пользователя: "male" (Мужчина) или "female" (Женщина).
+[/code]]]></phrase>
+  <phrase title="sxfcore_dependent_addons" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Зависимых плагинов]]></phrase>
+  <phrase title="sxfcore_dependent_components" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Зависимых компонентов]]></phrase>
+  <phrase title="sxfcore_gender" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Пол]]></phrase>
+  <phrase title="sxfcore_gender_female" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Женщина]]></phrase>
+  <phrase title="sxfcore_gender_male" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Мужчина]]></phrase>
+  <phrase title="sxfcore_no_permission_view_value_this_field" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[У вас недостаточно прав для просмотра значения этого поля!]]></phrase>
+  <phrase title="sxfcore_the_user_has_forbidden_to_view_this_information" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Пользователь запретил просматривать эту информацию!]]></phrase>
+  <phrase title="sxfcore_this_field_can_be_hidden_by_the_user" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Поле может быть скрыто пользователем]]></phrase>
+  <phrase title="sxfcore_this_field_can_be_hidden_by_the_user_explain" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Поле будет отображатся только пользователю, скрывший его, а так же главному администратору и главному модератору.]]></phrase>
+  <phrase title="sxfcore_viewable_by_user_groups" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Группы пользователей, которые могут видеть значение поля]]></phrase>
+  <phrase title="sxfcore_viewable_by_user_groups_explain" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Обратите внимание, что в зависимости от прав администратор всегда видит это поле!]]></phrase>
+  <phrase title="sxfcore_who_sees_the_field" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Кто видит поле]]></phrase>
+  <phrase title="sxfmp_all_users" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Все пользователи]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_authorized" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Только авторизованные]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_hide" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Только я]]></phrase>
+  <phrase title="sxfmp_user_filed_hide_subscriber" addon_id="SXFCore" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Только подписчики]]></phrase>
+</language>

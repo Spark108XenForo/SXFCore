@@ -11,6 +11,60 @@
         "version_string": "1.1.0 Beta 1",
         "hash": "814f0d3f1c3c582042a6e6fc7abac9f6"
     },
+    "option.tagPosition.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "37063710a1d22f4b4ef453872a9c8abd"
+    },
+    "option_explain.tagPosition.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "03bfd39e808a1f7b1d94039ed2a2dee3"
+    },
+    "sxfcore_component_data_clone.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "ff28ed36b6ae85cee7b62e8ffaecd33a"
+    },
+    "sxfcore_component_data_clone_description.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "41baf2013331ecfdf3567c9ef3f0e0d7"
+    },
+    "sxfcore_component_dependent_addons.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "a47aec9935f05eafc576f22f8bf5cb03"
+    },
+    "sxfcore_component_disabled_warning_addon_dependencies.txt": {
+        "global_cache": false,
+        "version_id": 1010131,
+        "version_string": "1.1.1 Beta 1",
+        "hash": "5ce779a5e01339ff43573a9051e7b3dd"
+    },
+    "sxfcore_component_help.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "5ec7c487e132bf69f7d87483f0f23585"
+    },
+    "sxfcore_component_other.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "6311ae17c1ee52b36e68aaf4ad066387"
+    },
+    "sxfcore_component_other_description.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "3cc3b279f2e5af10bc5960e1a4c8fe69"
+    },
     "sxfcore_component_thread_field_hide.txt": {
         "global_cache": false,
         "version_id": 1010131,
@@ -47,6 +101,12 @@
         "version_string": "1.1.0 Beta 1",
         "hash": "c5be48b354659d03565dcc4fd2fc8eca"
     },
+    "sxfcore_component_user_gender_developer.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "0499cba1ff12d51986a39aa2a8b66a19"
+    },
     "sxfcore_dependent_addons.txt": {
         "global_cache": false,
         "version_id": 1010031,
@@ -58,6 +118,12 @@
         "version_id": 1010031,
         "version_string": "1.1.0 Beta 1",
         "hash": "d8b22fac23db19efd0c750bff97faa4a"
+    },
+    "sxfcore_developer.txt": {
+        "global_cache": false,
+        "version_id": 1010132,
+        "version_string": "1.1.1 Beta 2",
+        "hash": "672caf27f5363dc833bda5099775e891"
     },
     "sxfcore_the_user_has_forbidden_to_view_this_information.txt": {
         "global_cache": false,

@@ -22,5 +22,17 @@
     },
     "public/sxfcore_extends_post_macros.json": {
         "hash": "add27bcdcc4452d493103316f6370395"
+    },
+    "public/sxfcore_extends_thread_view_tp_bottom.json": {
+        "hash": "7f4dbcd229043310af0542583f3ac687"
+    },
+    "public/sxfcore_extends_thread_view_tp_top.json": {
+        "hash": "e6d8b461e1bdf68ab8c870885e625682"
+    },
+    "public/sxfcore_resource_wrapper_macros_tp_top.json": {
+        "hash": "2b06e3a340dc94b717fe68259b191a31"
+    },
+    "public/sxfcore_xfrm_resource_view_tp_bottom.json": {
+        "hash": "89f795936c75d2d0c58339fedacf4332"
     }
 }

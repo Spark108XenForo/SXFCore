@@ -24,9 +24,10 @@ class MySql
 				INSERT INTO [table] 
 					(`component_id`, `addon_dependencies`, `component_dependencies`, `enabled`) 
 				VALUES
-					(0x7468726561645F6669656C645F68696465, NULL, NULL, 1),
-					(0x757365725F6669656C645F68696465, NULL, NULL, 1),
-					(0x757365725f67656e646572, NULL, NULL, 1);
+					(0x7468726561645f6669656c645f68696465, 0x613a303a7b7d, 0x613a303a7b7d, 1),
+					(0x757365725f6669656c645f68696465, 0x613a303a7b7d, 0x613a303a7b7d, 1),
+					(0x757365725f67656e646572, 0x613a303a7b7d, 0x613a303a7b7d, 1),
+					(0x6F74686572, 0x613a303a7b7d, 0x613a303a7b7d, 1);
 			"
 		];
 		
@@ -61,7 +62,7 @@ class MySql
 			'import' => true,
 			'create_alter' => function(Alter $table)
 			{
-				$table->addColumn('sxfcore_hide_field', 'ENUM')->values('hide', 'subscriber', 'authorized', 'all')->setDefault('hide');
+				$table->addColumn('sxfcore_hide_field', 'ENUM')->values(['hide', 'subscriber', 'authorized', 'all'])->setDefault('hide');
 			},
 			'drop_alter' => function(Alter $table)
 			{

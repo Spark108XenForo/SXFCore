@@ -104,6 +104,11 @@ abstract class AbstractSetup extends \XF\AddOn\AbstractSetup
 		{
 			$sm = $this->schemaManager();
 			
+			if (!$sm->tableExists($tableName))
+			{
+				return;
+			}
+			
 			if (isset($data['drop_alter']))
 			{
 				$sm->alterTable($tableName, $data['drop_alter']);

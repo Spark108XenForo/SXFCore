@@ -1,0 +1,5 @@
+[code=php]
+$userId = 1;
+$user = \XF::finder('XF:User')->where('user_id', $userId)->fetchOne();
+$gender = $user->sxfcore_gender; //Gender: "male" Or "female".
+[/code]

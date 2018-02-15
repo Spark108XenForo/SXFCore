@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="tagPosition" edit_format="radio" data_type="string">
+    <default_value>top</default_value>
+    <edit_format_params>top={{ phrase('top') }}
+bottom={{ phrase('bottom') }}</edit_format_params>
+    <relation group_id="tagging" display_order="100"/>
+  </option>
+</options>

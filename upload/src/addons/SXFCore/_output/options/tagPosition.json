@@ -1,0 +1,12 @@
+{
+    "edit_format": "radio",
+    "edit_format_params": "top={{ phrase('top') }}\nbottom={{ phrase('bottom') }}",
+    "data_type": "string",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "default_value": "top",
+    "relations": {
+        "tagging": 100
+    }
+}

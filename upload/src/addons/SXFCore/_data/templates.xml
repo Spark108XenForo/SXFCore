@@ -43,7 +43,24 @@
 		<xf:formrow explain="{{ phrase('sxfcore_viewable_by_user_groups_explain') }}" />
 	</xf:if>
 </xf:macro>]]></template>
-  <template type="admin" title="sxfcore_component_list" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[<xf:title>{{ phrase('admin_navigation.sxfcorecomponents') }}</xf:title>
+  <template type="admin" title="sxfcore_component_addon_list" version_id="1010131" version_string="1.1.1 Beta 1"><![CDATA[<xf:title>{{ phrase('sxfcore_component_dependent_addons') }}</xf:title>
+
+<xf:css src="addon_list.less" />
+
+<div class="addOnList">
+	<div class="block-container" style="border:none">
+		<xf:if is="$addOns is not empty">
+			<ol class="block-body">
+				<xf:foreach loop="$addOns" value="$addOn">
+					<xf:macro template="addon_list_macros" name="addon_list_item" arg-addOn="{$addOn}" />
+				</xf:foreach>
+			</ol>
+		<xf:else />
+			<div class="block-body block-row">{{ phrase('no_items_matched_your_filter') }}</div>
+		</xf:if>
+	</div>
+</div>]]></template>
+  <template type="admin" title="sxfcore_component_list" version_id="1010132" version_string="1.1.1 Beta 2"><![CDATA[<xf:title>{{ phrase('admin_navigation.sxfcorecomponents') }}</xf:title>
 
 <xf:form action="{{ link('sxfcorecomponents/toggle') }}" ajax="true" class="block block-container">
 	<xf:datalist>
@@ -52,17 +69,19 @@
 				<xf:datarow rowtype="subsection" rowclass="dataList-row--noHover">
 					<xf:cell>{$component.title}</xf:cell>
 				
-					<xf:cell href="{{ link('sxfcorecomponents/components') }}" overlay="true">
+					<xf:cell href="{{ link('sxfcorecomponents/components', $component) }}" overlay="true">
 						{{ phrase('sxfcore_dependent_components:') }}
-						{{ $component.component_dependencies ? $component.component_dependencies.count() : '0' }}
+						{{ count($component.component_dependencies) }}
 					</xf:cell>
 				
-					<xf:cell href="{{ link('sxfcorecomponents/add-ons') }}" overlay="true">
+					<xf:cell href="{{ link('sxfcorecomponents/add-ons', $component) }}" overlay="true">
 						{{ phrase('sxfcore_dependent_addons:') }}
-						{{ $component.addon_dependencies ? $component.addon_dependencies.count() : '0' }}
+						{{ count($component.addon_dependencies) }}
 					</xf:cell>
 				
-					<xf:if is="!{$component.error}">
+					<xf:if is="$component.errors is not empty">
+						<xf:cell />
+					<xf:else />
 						<xf:toggle name="enabled[{$component.component_id}]" selected="{$component.enabled}"
 							class="dataList-cell--separated" submit="true"
 							tooltip="{{ phrase('enable_disable_x', {'title': $component.title}) }}" />
@@ -73,10 +92,36 @@
 					<xf:cell colspan="4">{$component.description}</xf:cell>
 				</xf:datarow>
 				
-				<xf:if is="{$component.error}">
+				<xf:if is="{$xf.debug} AND {$component.developer}">
 					<xf:datarow>
-						<xf:cell colspan="4">{$component.error|raw}</xf:cell>
+						<xf:cell colspan="4">
+							<xf:datalist>
+								<xf:datarow>
+									<xf:cell><b>{{ phrase('developer') }}</b></xf:cell>
+									<xf:cell>{{ bb_code($component.developer, null, null) }}</xf:cell>
+								</xf:datarow>
+							</xf:datalist>
+						</xf:cell>
 					</xf:datarow>
+				</xf:if>
+				
+				<xf:if is="$component.warnings is not empty">
+					<xf:foreach loop="{$component.warnings}" value="$warning">
+						<xf:datarow>
+							<xf:cell colspan="4" style="color:orange">
+								{$warning|raw}
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:if>
+				<xf:if is="$component.errors is not empty">
+					<xf:foreach loop="{$component.errors}" value="$error">
+						<xf:datarow>
+							<xf:cell colspan="4" style="color:red">
+								{$error|raw}
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
 				</xf:if>
 			</tbody>
 		</xf:foreach>

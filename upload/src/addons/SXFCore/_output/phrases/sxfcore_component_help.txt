@@ -1,0 +1,13 @@
+This information is only visible in debug mode!
+[ul]
+[li] To register a plug-in in SXFCore, you need to create the Setup.php file as in SXFCore (But with your namespace), add 2 methods [ICODE] _preInstall () [/ICODE] and [ICODE] _postUninstall () [/ICODE] with with the following content: [CODE=php] protected function _postInstall()
+{
+$ this-> getComponentRepo()->setAddonDependencies('component_name', $this->addOn);
+}
+
+protected function _postUninstall()
+{
+$this->getComponentRepo()->deleteAddonDependencies('component_name', $this->addOn);
+} [/CODE] The first will log
+[/li]
+[/ul]

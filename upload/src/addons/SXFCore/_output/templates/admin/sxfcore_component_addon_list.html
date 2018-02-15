@@ -1,0 +1,17 @@
+<xf:title>{{ phrase('sxfcore_component_dependent_addons') }}</xf:title>
+
+<xf:css src="addon_list.less" />
+
+<div class="addOnList">
+	<div class="block-container" style="border:none">
+		<xf:if is="$addOns is not empty">
+			<ol class="block-body">
+				<xf:foreach loop="$addOns" value="$addOn">
+					<xf:macro template="addon_list_macros" name="addon_list_item" arg-addOn="{$addOn}" />
+				</xf:foreach>
+			</ol>
+		<xf:else />
+			<div class="block-body block-row">{{ phrase('no_items_matched_your_filter') }}</div>
+		</xf:if>
+	</div>
+</div>
